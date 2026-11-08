@@ -1,0 +1,5 @@
+{
+    // Microsoft C/C++ extension: DayZ's .c files aren't C, so its errors are turned off here.
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.intelliSenseEngine": "disabled"
+}

@@ -1,0 +1,80 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceFolder}"
+    },
+    "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+    },
+    "problemMatcher": [],
+    "tasks": [
+        {
+            "label": "1. Check install",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\check_install.ps1"],
+            "problemMatcher": []
+        },
+        {
+            "label": "2. Rename mod",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\rename_mod.ps1", "-Name", "${input:modName}"],
+            "problemMatcher": []
+        },
+        {
+            "label": "3. Build",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\build.ps1"],
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "4. Test locally",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\test_local.ps1"],
+            "group": { "kind": "test", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "5. Live logs",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\live_logs.ps1"],
+            "problemMatcher": []
+        },
+        {
+            "label": "6. Close everything",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\close_all.ps1"],
+            "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "7. Prepare release",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\prepare_release.ps1"],
+            "problemMatcher": []
+        },
+        {
+            "label": "8. Check before publishing",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\tools\\check_publish.ps1"],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "modName",
+            "type": "promptString",
+            "description": "New mod name (letters and digits, no spaces). Example: MyCoolMod"
+        }
+    ]
+}

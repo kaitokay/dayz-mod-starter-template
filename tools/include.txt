@@ -1,0 +1,4 @@
+# What goes into the .pbo: one file or folder per line.
+# Add stringtable.csv, sounds or data, for example, if your mod needs them.
+config.cpp
+scripts

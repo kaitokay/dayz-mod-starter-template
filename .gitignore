@@ -1,0 +1,23 @@
+# Keys: the private one must never leave your PC
+*.biprivatekey
+*.bikey
+*.bisign
+
+# Generated files
+build/
+release/
+*.pbo
+
+# Paths specific to your PC
+tools/paths.bat
+
+# DayZ logs and dumps
+*.log
+*.RPT
+*.ADM
+*.mdmp
+
+# System
+Thumbs.db
+desktop.ini
+.DS_Store
